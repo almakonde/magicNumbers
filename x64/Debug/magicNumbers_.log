@@ -1,3 +1,2 @@
 ﻿  main.cpp
-x64\Debug\beautiful_number.obj : warning LNK4042: объект указан более одного раза; лишние не учитываются
   magicNumbers_.vcxproj -> C:\Users\almak\source\repos\magicNumbers_\x64\Debug\magicNumbers_.exe
