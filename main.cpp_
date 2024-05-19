@@ -1,0 +1,30 @@
+#include <iostream>
+#include <iomanip>
+
+using namespace std;
+
+unsigned long long happy(unsigned int n, unsigned int base)
+{
+    if (n % 2 || n < 2 || base < 2) throw runtime_error("Wrong data");
+    auto N = [](unsigned int n, unsigned int k,
+        unsigned int base, auto&& N)
+        {
+            if (n == 1) return (unsigned long long)(k < base);
+            unsigned long long s = 0;
+            for (unsigned int l = 0; l < base; ++l) s += N(n - 1, k - l, base, N);
+            return s;
+        };
+    unsigned long long s = 0;
+    for (unsigned int k = 0; k <= (base - 1) * n / 2; ++k)
+    {
+        auto m = N(n / 2, k, base, N);
+        s += m * m;
+    }
+    return s;
+}
+
+int main(int argc, char* argv[])
+{
+    //cout << 13 * happy(12, 13) << endl;
+    cout << happy(12, 13) << endl;
+}
